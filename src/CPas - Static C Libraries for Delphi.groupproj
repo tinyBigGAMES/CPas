@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{30782029-0706-4948-9550-29854CCB2A97}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Print\CPas_Print.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SQLite\CPas_SQLite.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\examples\testbed\CPas_Testbed.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CPas_Print">
+        <MSBuild Projects="Print\CPas_Print.cbproj"/>
+    </Target>
+    <Target Name="CPas_Print:Clean">
+        <MSBuild Projects="Print\CPas_Print.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPas_Print:Make">
+        <MSBuild Projects="Print\CPas_Print.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="CPas_SQLite">
+        <MSBuild Projects="SQLite\CPas_SQLite.cbproj"/>
+    </Target>
+    <Target Name="CPas_SQLite:Clean">
+        <MSBuild Projects="SQLite\CPas_SQLite.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPas_SQLite:Make">
+        <MSBuild Projects="SQLite\CPas_SQLite.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="CPas_Testbed">
+        <MSBuild Projects="..\examples\testbed\CPas_Testbed.dproj"/>
+    </Target>
+    <Target Name="CPas_Testbed:Clean">
+        <MSBuild Projects="..\examples\testbed\CPas_Testbed.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPas_Testbed:Make">
+        <MSBuild Projects="..\examples\testbed\CPas_Testbed.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CPas_Print;CPas_SQLite;CPas_Testbed"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CPas_Print:Clean;CPas_SQLite:Clean;CPas_Testbed:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CPas_Print:Make;CPas_SQLite:Make;CPas_Testbed:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
