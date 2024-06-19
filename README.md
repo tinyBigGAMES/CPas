@@ -28,7 +28,7 @@ From Delphi 12.1 onwards compiled C code can be incorporated into Delphi EXE wit
 - Since Win64 Modern platform links only to the dynamic UCRT, only the routine address is needed, not a proper definition. i.e. `procedure wprintf; external ucrt;` is enough since the host app does not need to call it directly. As long as the code in the `.o` can reference `wprintf`, it will compile.
 
 #### Instructions
-- Compile the project C++ builder, take the `.o` file and add it to the Delphi wrapper unit `{$L Unit1.o}`, with reference to `CRuntime` unit.
+- Compile the project with C++ builder, take the `.o` file and add it to the Delphi wrapper unit `{$L Unit1.o}`, with reference to `CRuntime` unit.
 - Any C library that one would normally have to use via a `.dll`, can be attempted to be compiled in C++Builder Win64 Modern, and if so, then it's likely possible to statically link that into Delphi without having a DLL.
 
 For example:
