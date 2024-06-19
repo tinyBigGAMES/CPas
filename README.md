@@ -42,6 +42,7 @@ sqlite3 C lib is now statically linked inside your Delphi EXE.
 
 #### Prerequisites
 - RAD Studio 12.1 or higher.
+- Compile, then run without debugging.
 - `__chkstk_ms` is needed, which is located not in `api-ms-win-crt-stdio-l1-1-0.dll` but in `kernalbase.dll` and it is not named `chkstk_ms` inside that DLL, but only as `chkstk`, while the code inside the `.o` file references it as `__chkstk_ms` and is solved by `procedure _chkstk_ms; stdcall; external kernelbase name 'chkstk';`. This has been added to `CPas.CRuntime` unit.
 - All these things must be "visible" in Delphi on order for the project to compile.
 
