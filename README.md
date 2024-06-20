@@ -9,6 +9,7 @@ Current list of static C libraries available. More will be added by myself and h
 
 | Name           | Latest Version  | Category | Description |
 |----------------|----------------|----------------|----------------|
+| [miniaudio](https://github.com/mackron/miniaudio) | 0.11.21 | Audio | An audio playback and capture library |
 | Print          | 1.0.0| Console  | Print colored text to the console |
 | [SQLite](https://github.com/sqlite/sqlite) | 3.46.0 | Database | Local SQL database library |
 

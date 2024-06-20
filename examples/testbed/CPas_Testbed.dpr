@@ -26,7 +26,8 @@ uses
   UCPas_Testbed in 'UCPas_Testbed.pas',
   CPas.CRuntime in '..\..\lib\CPas.CRuntime.pas',
   CPas.Print in '..\..\lib\Print\CPas.Print.pas',
-  CPas.SQLite in '..\..\lib\SQLite\CPas.SQLite.pas';
+  CPas.SQLite in '..\..\lib\SQLite\CPas.SQLite.pas',
+  CPas.Miniaudio in '..\..\lib\Miniaudio\CPas.Miniaudio.pas';
 
 begin
   try

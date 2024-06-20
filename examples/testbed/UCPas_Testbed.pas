@@ -21,7 +21,8 @@ interface
 
 uses
   CPas.Print,
-  CPas.SQLite;
+  CPas.SQLite,
+  CPas.Miniaudio;
 
 procedure RunTests();
 
@@ -35,13 +36,13 @@ begin
   WriteLn;
 end;
 
-procedure Test01();
+procedure Test_Print();
 begin
   PrintLn('Welcome to CPas - Static C Libraries for Delphi!', FG_DARKGREEN);
   PrintLn('Russian text: %s'+CRLF, FG_CYAN, 'Привет как дела?');
 end;
 
-procedure Test02();
+procedure Test_SQLite();
 
 var
   LDb: Psqlite3;
@@ -65,6 +66,8 @@ var
 
 
 begin
+  PrintLn('sqlite version: %ls'+CRLF, FG_CYAN, string(sqlite3_libversion()));
+
   // Open database
   LRes := sqlite3_open('example.db', @LDb);
   CheckError(LRes, LDb);
@@ -97,10 +100,33 @@ begin
   Writeln('Done.');
 end;
 
+procedure Test_MiniAudio();
+var
+  LResult: ma_result;
+  LEngine: ma_engine;
+begin
+  PrintLn('miniaudio version: %ls'+CRLF, FG_CYAN, string(ma_version_string()));
+
+  LResult := ma_engine_init(nil, @LEngine);
+  if LResult <> MA_SUCCESS then
+  begin
+    PrintLn('Failed to initialize audio engine.', FG_RED);
+    Exit;
+  end;
+
+  ma_engine_play_sound(@LEngine, 'res\audio\song01.ogg', nil);
+
+  Print('Press ENTER to quit...', FG_WHITE);
+  ReadLn;
+
+  ma_engine_uninit(@LEngine);
+end;
+
 procedure RunTests();
 begin
-  //Test01();
-  Test02();
+  //Test_Print();
+  //Test_SQLite();
+  Test_MiniAudio();
   Pause();
 end;
 

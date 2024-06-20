@@ -9,6 +9,9 @@
         <Projects Include="SQLite\CPas_SQLite.cbproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="miniaudio\CPas_Miniaudio.cbproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="..\examples\testbed\CPas_Testbed.dproj">
             <Dependencies/>
         </Projects>
@@ -38,6 +41,15 @@
     <Target Name="CPas_SQLite:Make">
         <MSBuild Projects="SQLite\CPas_SQLite.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="CPas_Miniaudio">
+        <MSBuild Projects="miniaudio\CPas_Miniaudio.cbproj"/>
+    </Target>
+    <Target Name="CPas_Miniaudio:Clean">
+        <MSBuild Projects="miniaudio\CPas_Miniaudio.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPas_Miniaudio:Make">
+        <MSBuild Projects="miniaudio\CPas_Miniaudio.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="CPas_Testbed">
         <MSBuild Projects="..\examples\testbed\CPas_Testbed.dproj"/>
     </Target>
@@ -48,13 +60,13 @@
         <MSBuild Projects="..\examples\testbed\CPas_Testbed.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="CPas_Print;CPas_SQLite;CPas_Testbed"/>
+        <CallTarget Targets="CPas_Print;CPas_SQLite;CPas_Miniaudio;CPas_Testbed"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CPas_Print:Clean;CPas_SQLite:Clean;CPas_Testbed:Clean"/>
+        <CallTarget Targets="CPas_Print:Clean;CPas_SQLite:Clean;CPas_Miniaudio:Clean;CPas_Testbed:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CPas_Print:Make;CPas_SQLite:Make;CPas_Testbed:Make"/>
+        <CallTarget Targets="CPas_Print:Make;CPas_SQLite:Make;CPas_Miniaudio:Make;CPas_Testbed:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

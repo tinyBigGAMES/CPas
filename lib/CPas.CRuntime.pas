@@ -296,6 +296,9 @@ function _findfirst64(const pattern: PAnsiChar; var finddata: TWin32FindData): I
 function _findnext64(handle: IntPtr; var finddata: TWin32FindData): Integer; cdecl; external ucrt;
 function putchar(c: Integer): Integer; cdecl; external ucrt;
 function _localtime64(const time: PInt64): Ptm; cdecl; external ucrt name '_localtime64';
+function _stricmp(const str1, str2: PAnsiChar): Integer; cdecl; external ucrt name '_stricmp';
+function wcsrtombs(dest: PAnsiChar; src: PPWideChar; len: size_t; ps: Pointer): size_t; cdecl; external ucrt name 'wcsrtombs';
+
 
 
 //=== MSVCRT ================================================================
