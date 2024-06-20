@@ -91,13 +91,13 @@ Our development motto:
 - <a href="https://tinybiggames.com/" target="_blank">tinyBigGAMES</a>
 
 ### <img src="media\Copyright.png" alt="License" width="20" height="20"/> License
-LMEngine is a community-driven project created by <a href="https://github.com/tinyBigGAMES" target="_blank">tinyBigGAMES LLC</a>.
+CPas is a community-driven project created by <a href="https://github.com/tinyBigGAMES" target="_blank">tinyBigGAMES LLC</a>.
 
 BSD-3-Clause license - Core developers:
 - <a href="https://github.com/jarroddavis68" target="_blank">Jarrod Davis</a>
 
 ### <img src="media\People.png" alt="Acknowledgments" width="20" height="20"/> Acknowledgments
-LMEngine couldn't have been built without the help of wonderful people and great software already available from the community. **Thank you!**
+CPas couldn't have been built without the help of wonderful people and great software already available from the community. **Thank you!**
 
 People
 - John Claw
