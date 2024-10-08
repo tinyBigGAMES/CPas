@@ -1,110 +1,76 @@
-![LMEngine](media/Logo.jpg)
+![CPas](media/Logo.jpg)
 
 [![Chat on Discord](https://img.shields.io/discord/754884471324672040.svg?logo=discord)](https://discord.gg/tPWjMwK) [![Twitter Follow](https://img.shields.io/twitter/follow/tinyBigGAMES?style=social)](https://twitter.com/tinyBigGAMES)
 
-# CPas
-### Static C Libraries for Delphi
+CPas is a collection of hand-picked, high-quality C 📚, compiled into a single translation unit and seamlessly integrated into Delphi. This approach eliminates the need for external DLLs, runtime extraction, or loading them in memory, simplifying the development process and reducing potential compatibility issues, such as antivirus 🛡️ interference. The project has been developed and extensively tested on 🪟 Windows 11 with <a href="https://www.embarcadero.com/products/rad-studio" target="_blank">RAD Studio 12.2</a>, and is designed to be fully compatible with 🪟 Windows 10, 64-bit and higher. This makes the setup ideal for developers looking for a streamlined and efficient way to leverage C libraries directly in Delphi.
 
-Current list of static C libraries available. More will be added by myself and hopfully other people in the community. If you wish to contribute, submit a PR. Follow the project format in this repo.
+## 🔑 Key Features
+- **Fully Integrated**: All the C dependencies are linked directly into Delphi, requiring no external tools beyond RAD Studio 12.2. This makes it easy for developers to get started without needing to worry about complex setups or additional tools.
+- **🛠️ Latest Clang-based Toolchain**: The project uses the clang-based toolchainin in C++ Builder to compile C sources directly from within the IDE. This ensures high compatibility and performance, leveraging the modern capabilities of RAD Studio.
+- **🔄 Streamlined Workflow**: No DLLs are required at runtime. All dependencies are consolidated into a single translation unit (`library.c`) and linked into Delphi using `{$L library.o}`. This drastically simplifies deployment and reduces the number of files needed to ship with your application.
+- **🛡️ Reduced Errors and Interference**: By eliminating the need for runtime DLL handling, the approach significantly reduces the chance of runtime errors and minimizes issues that could be caused by antivirus software, ensuring a smoother development and deployment process.
 
-| Name           | Latest Version  | Category | Description |
-|----------------|----------------|----------------|----------------|
-| [miniaudio](https://github.com/mackron/miniaudio) | 0.11.21 | Audio | An audio playback and capture library |
-| Print          | 1.0.0| Console  | Print colored text to the console |
-| [SQLite](https://github.com/sqlite/sqlite) | 3.46.0 | Database | Local SQL database library |
+## ⚙️ System Requirements
+- **🧩 Delphi Version**: RAD Studio 12.2 or newer is required to compile the C sources. Leveraging the latest Delphi features ensures compatibility and performance.
+- **💻 Platform**: The libraries are designed for 🪟 Windows 10 64-bit or higher, providing compatibility with most modern Windows environments.
+- **✅ Tested On**: The entire project has been developed and thoroughly tested on 🪟 Windows 11 with Delphi 12.2, ensuring that it works seamlessly in this environment.
 
+## 🚀 Getting Started
+To get started with Static C Libraries for Delphi, you can download the latest version from the GitHub repository:
 
-### <img src="media\Analyze.png" alt="Overview" width="20" height="20"/> Utilizing C code in Delphi app
-From Delphi 12.1 onwards compiled C code can be incorporated into Delphi EXE without the need to use or include a DLL.
- 
-#### In short
-1. Including the `.o` file from C++ Builder `{$L Unit1.o}`.
-2. Exposing all the calls the C code relies on, and referencing them in Delphi (long list already exists, figuring out more is easy). See `CPas.CRuntime unit`.
-3. Defining Delphi headers for the actual C routines in the `.o` file.
- 
-#### Explanation
-- The trick is to build a `CRuntime` unit to reference all the missing functions the C code needs.
-- C++ Builder's Win64 Modern platform is Clang based and links against the UCRT runtime, making a dll/exe in C, with `TDUMP` to show all the C runtime routines it references.
-- It is ‘trivial’ to add to the `CRuntime` unit and build up a unit of routines in Delphi. 
-- Since Win64 Modern platform links only to the dynamic UCRT, only the routine address is needed, not a proper definition. i.e. `procedure wprintf; external ucrt;` is enough since the host app does not need to call it directly. As long as the code in the `.o` can reference `wprintf`, it will compile.
+[⬇️ Download the latest version](https://github.com/tinyBigGAMES/CPas/archive/refs/heads/main.zip)
 
-#### Instructions
-- Compile the project with C++ builder, take the `.o` file and add it to the Delphi wrapper unit `{$L Unit1.o}`, with reference to `CRuntime` unit.
-- Any C library that one would normally have to use via a `.dll`, can be attempted to be compiled in C++Builder Win64 Modern, and if so, then it's likely possible to statically link that into Delphi without having a DLL.
+Once downloaded, you can easily integrate the provided libraries into your Delphi projects, taking advantage of the precompiled object `.o` files to start developing without needing to deal with compiling C code separately. All you need to do is add `CPas.*` to your uses section.
 
-For example:
-1.	Compile `sqlite3.c` and take the `sqlite3.o`.
-2.	In the uses section add `CRuntime` unit, used by the C runtime routines.
-3.	In a `sqlite3` unit, declare all the routines inside `sqlite3.o`. 
-4.	Add `{$L sqlite3.o}` in the implementation section.
-5. Add this `sqlite3` unit to your project and compile.
+## 📚 Available Static Libraries
+The following is a list of the current static C libraries available in this project, each carefully chosen to provide essential functionality for modern applications and 🎮 game development:
 
-sqlite3 C lib is now statically linked inside your Delphi EXE.
+| 🏷️ Name           | 🗂️ Category  | 📝 Description |
+|----------------|-----------|-------------|
+| [GLFW](https://github.com/glfw/glfw)             | 🪟 Windowing   | Multi-platform library for creating windows and handling input events, suitable for building powerful graphical applications. |
+| [RGFW](https://github.com/ColleagueRiley/RGFW)   | 🪟 Windowing   | A cross platform lightweight single-header simple-to-use window abstraction library for creating graphical programs or libraries. |
+| [miniaudio](https://github.com/mackron/miniaudio)| 🔊 Audio       | An audio playback and capture library that supports a wide variety of audio formats, making it ideal for games and multimedia applications. |
+| [pl_mpeg](https://github.com/phoboslab/pl_mpeg)  | 📺 Media       | A single-header library for decoding MPEG-1 video, allowing developers to integrate video playback functionality directly into their applications. |
+| [stb_image](https://github.com/nothings/stb)     | 🖼️ Graphics    | Image loading library supporting multiple formats, making it easy to load textures and images in a variety of common formats. |
+| [stb_image_write](https://github.com/nothings/stb) | 🖼️ Graphics   | Image writing library for writing PNG, BMP, TGA, and JPG images, useful for saving screenshots or exporting image data. |
+| [stb_truetype](https://github.com/nothings/stb)  | 🖋️ Graphics    | Library for parsing TrueType font files, providing an easy way to render fonts and text in your applications. |
 
-#### Prerequisites and other notes
-- RAD Studio 12.1 or higher.
-- ~~`__chkstk_ms` is needed, which is located not in `api-ms-win-crt-stdio-l1-1-0.dll` but in `kernalbase.dll` and it is not named `chkstk_ms` inside that DLL, but only as `chkstk`, while the code inside the `.o` file references it as `__chkstk_ms` and is solved by `procedure _chkstk_ms; stdcall; external kernelbase name 'chkstk';`.~~ This has been added to `CPas.CRuntime` unit.
-- All these things must be "visible" in Delphi in order for the project to compile.
+These libraries provide a comprehensive range of functionalities for building sophisticated applications and 🎮 games in Delphi, without the hassle of managing external dependencies. By using static linking, you can avoid compatibility issues related to DLL versions and reduce the need for runtime dependencies, simplifying both development and deployment.
 
-#### Expanding
-- May work with other clang based compilers, but using C++ Builder to compile the C sources will work best with Delphi.
-- Adding more references:
-```  
-Imports from api-ms-win-crt-convert-l1-1-0.dll:
-_strtod_l
-_strtoi64_l
-_strtoui64_l
-atof
-atoi
-atol
-mbrtowc
-mbsrtowcs
-strtof
-strtol
-strtoll
-strtoul
-strtoull
-wcrtomb
-wcrtomb_s
+## ⚙️ How It Works
+All the C libraries are compiled within RAD Studio 12.2 using the latest clang-based toolchain, and the result is consolidated into a single precompiled object file, `library.o`. This is then linked directly into the Delphi project using the `$L` directive. This approach ensures a consistent and streamlined development environment, making the integration process as seamless as possible:
+
+```delphi
+{$L library.o}
 ```
-- Take all those references and go to `ChatGPT` and say:
-“Create a Delphi unit called `CRuntime` and export these routines from `api-ms-win-crt-stdio-l1-1-0.dll` define as a const ucrt:” and paste the above references.
-=> ChatGPT will generate a CRuntime unit.
-- If for example `wprintf` in `UCRT` complain that `_wprintf` is not found, an underscore prefix will help, it’s a c linkage thing.
-- Target 64 bit
-- `CPas.CRuntime` unit exists in the repo, just add any new references to it.
- 
-### <img src="media\Support.png" alt="Support" width="20" height="20"/> Support
-Our development motto: 
-- We will not release products that are buggy, incomplete, adding new features over not fixing underlying issues.
-- We will strive to fix issues found with our products in a timely manner.
-- We will maintain an attitude of quality over quantity for our products.
-- We will establish a great rapport with users/customers, with communication, transparency and respect, always encouraging feedback to help shape the direction of our products.
-- We will be decent, fair, remain humble and committed to the craft.
 
-### <img src="media\Link.png" alt="Links" width="20" height="20"/> Links
-- <a href="https://github.com/tinyBigGAMES/CPass/issues" target="_blank">Issues</a>
-- <a href="https://github.com/tinyBigGAMES/CPass/discussions" target="_blank">Discussions</a>
+By following this approach, developers can enjoy the full benefits of these popular C libraries without worrying about DLL management, compatibility issues, or antivirus false positives. The entire setup is optimized to be as developer-friendly as possible, reducing the number of moving parts and ensuring that your development environment remains predictable and easy to maintain.
+
+## 🤝 Contributions
+Contributions are highly encouraged! If you have additional static libraries you would like to add, or if you want to improve the existing codebase, feel free to submit a pull request. Additionally, if you encounter any issues or have suggestions, please open an issue in the repository. The goal is to make Static C Libraries for Delphi a robust and versatile resource for Delphi developers, and your contributions can help achieve that.
+
+<a href="https://github.com/tinyBigGAMES/mambagametoolkit/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tinyBigGAMES/mambagametoolkit&max=500&columns=20&anon=1" />
+</a>
+
+## 📜 License
+This project is licensed under the BSD-3-Clause License - see the [LICENSE](https://github.com/tinyBigGAMES/CPas#BSD-3-Clause-1-ov-file) file for details. This license allows you to freely use, modify, and distribute the toolkit, making it a great choice for open-source projects and commercial endeavors alike.
+
+## 🛟 Support
+
+- <a href="https://github.com/tinyBigGAMES/CPas/issues" target="_blank">Issues</a>
+- <a href="https://github.com/tinyBigGAMES/CPas/discussions" target="_blank">Discussions</a>
 - <a href="https://discord.gg/tPWjMwK" target="_blank">Discord</a>
 - <a href="https://youtube.com/tinyBigGAMES" target="_blank">YouTube</a>
 - <a href="https://twitter.com/tinyBigGAMES" target="_blank">X (Twitter)</a>
 - <a href="https://tinybiggames.com/" target="_blank">tinyBigGAMES</a>
 
-### <img src="media\Copyright.png" alt="License" width="20" height="20"/> License
-CPas is a community-driven project created by <a href="https://github.com/tinyBigGAMES" target="_blank">tinyBigGAMES LLC</a>.
+Happy coding! 💻✨
 
-BSD-3-Clause license - Core developers:
-- <a href="https://github.com/jarroddavis68" target="_blank">Jarrod Davis</a>
+<p align="center">
+<img src="media/delphi.png" alt="Delphi">
+</p>
+<h5 align="center">
 
-### <img src="media\People.png" alt="Acknowledgments" width="20" height="20"/> Acknowledgments
-CPas couldn't have been built without the help of wonderful people and great software already available from the community. **Thank you!**
-
-People
-- John Claw
-- Robert Jalarvo
-
-Contributors
-
-<a href="https://github.com/tinyBigGAMES/CPass/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=tinyBigGAMES/CPas&max=500&columns=20&anon=1" />
-</a>
+Made with :heart: in Delphi
+</h5>

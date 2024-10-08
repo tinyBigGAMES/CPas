@@ -1,18 +1,30 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{30782029-0706-4948-9550-29854CCB2A97}</ProjectGuid>
+        <ProjectGuid>{E084C0C5-55FA-4D72-B479-4280CFA0BD7D}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Print\CPas_Print.cbproj">
+        <Projects Include="glfw\CPas.GLFW.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="SQLite\CPas_SQLite.cbproj">
+        <Projects Include="rgfw\CPas.RGFW.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="miniaudio\CPas_Miniaudio.cbproj">
+        <Projects Include="miniaudio\CPas.miniaudio.cbproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="..\examples\testbed\CPas_Testbed.dproj">
+        <Projects Include="pl_mpeg\CPas.pl_mpeg.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="stb_image\CPas.stb_image.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="stb_image_write\CPas.stb_image_write.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="stb_truetype\CPas.stb_truetype.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\examples\testbed\Testbed.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -23,50 +35,86 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="CPas_Print">
-        <MSBuild Projects="Print\CPas_Print.cbproj"/>
+    <Target Name="CPas_GLFW">
+        <MSBuild Projects="glfw\CPas.GLFW.cbproj"/>
     </Target>
-    <Target Name="CPas_Print:Clean">
-        <MSBuild Projects="Print\CPas_Print.cbproj" Targets="Clean"/>
+    <Target Name="CPas_GLFW:Clean">
+        <MSBuild Projects="glfw\CPas.GLFW.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="CPas_Print:Make">
-        <MSBuild Projects="Print\CPas_Print.cbproj" Targets="Make"/>
+    <Target Name="CPas_GLFW:Make">
+        <MSBuild Projects="glfw\CPas.GLFW.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="CPas_SQLite">
-        <MSBuild Projects="SQLite\CPas_SQLite.cbproj"/>
+    <Target Name="CPas_RGFW">
+        <MSBuild Projects="rgfw\CPas.RGFW.cbproj"/>
     </Target>
-    <Target Name="CPas_SQLite:Clean">
-        <MSBuild Projects="SQLite\CPas_SQLite.cbproj" Targets="Clean"/>
+    <Target Name="CPas_RGFW:Clean">
+        <MSBuild Projects="rgfw\CPas.RGFW.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="CPas_SQLite:Make">
-        <MSBuild Projects="SQLite\CPas_SQLite.cbproj" Targets="Make"/>
+    <Target Name="CPas_RGFW:Make">
+        <MSBuild Projects="rgfw\CPas.RGFW.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="CPas_Miniaudio">
-        <MSBuild Projects="miniaudio\CPas_Miniaudio.cbproj"/>
+    <Target Name="CPas_miniaudio">
+        <MSBuild Projects="miniaudio\CPas.miniaudio.cbproj"/>
     </Target>
-    <Target Name="CPas_Miniaudio:Clean">
-        <MSBuild Projects="miniaudio\CPas_Miniaudio.cbproj" Targets="Clean"/>
+    <Target Name="CPas_miniaudio:Clean">
+        <MSBuild Projects="miniaudio\CPas.miniaudio.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="CPas_Miniaudio:Make">
-        <MSBuild Projects="miniaudio\CPas_Miniaudio.cbproj" Targets="Make"/>
+    <Target Name="CPas_miniaudio:Make">
+        <MSBuild Projects="miniaudio\CPas.miniaudio.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="CPas_Testbed">
-        <MSBuild Projects="..\examples\testbed\CPas_Testbed.dproj"/>
+    <Target Name="CPas_pl_mpeg">
+        <MSBuild Projects="pl_mpeg\CPas.pl_mpeg.cbproj"/>
     </Target>
-    <Target Name="CPas_Testbed:Clean">
-        <MSBuild Projects="..\examples\testbed\CPas_Testbed.dproj" Targets="Clean"/>
+    <Target Name="CPas_pl_mpeg:Clean">
+        <MSBuild Projects="pl_mpeg\CPas.pl_mpeg.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="CPas_Testbed:Make">
-        <MSBuild Projects="..\examples\testbed\CPas_Testbed.dproj" Targets="Make"/>
+    <Target Name="CPas_pl_mpeg:Make">
+        <MSBuild Projects="pl_mpeg\CPas.pl_mpeg.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="CPas_stb_image">
+        <MSBuild Projects="stb_image\CPas.stb_image.cbproj"/>
+    </Target>
+    <Target Name="CPas_stb_image:Clean">
+        <MSBuild Projects="stb_image\CPas.stb_image.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPas_stb_image:Make">
+        <MSBuild Projects="stb_image\CPas.stb_image.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="CPas_stb_image_write">
+        <MSBuild Projects="stb_image_write\CPas.stb_image_write.cbproj"/>
+    </Target>
+    <Target Name="CPas_stb_image_write:Clean">
+        <MSBuild Projects="stb_image_write\CPas.stb_image_write.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPas_stb_image_write:Make">
+        <MSBuild Projects="stb_image_write\CPas.stb_image_write.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="CPas_stb_truetype">
+        <MSBuild Projects="stb_truetype\CPas.stb_truetype.cbproj"/>
+    </Target>
+    <Target Name="CPas_stb_truetype:Clean">
+        <MSBuild Projects="stb_truetype\CPas.stb_truetype.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPas_stb_truetype:Make">
+        <MSBuild Projects="stb_truetype\CPas.stb_truetype.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Testbed">
+        <MSBuild Projects="..\examples\testbed\Testbed.dproj"/>
+    </Target>
+    <Target Name="Testbed:Clean">
+        <MSBuild Projects="..\examples\testbed\Testbed.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Testbed:Make">
+        <MSBuild Projects="..\examples\testbed\Testbed.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="CPas_Print;CPas_SQLite;CPas_Miniaudio;CPas_Testbed"/>
+        <CallTarget Targets="CPas_GLFW;CPas_RGFW;CPas_miniaudio;CPas_pl_mpeg;CPas_stb_image;CPas_stb_image_write;CPas_stb_truetype;Testbed"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CPas_Print:Clean;CPas_SQLite:Clean;CPas_Miniaudio:Clean;CPas_Testbed:Clean"/>
+        <CallTarget Targets="CPas_GLFW:Clean;CPas_RGFW:Clean;CPas_miniaudio:Clean;CPas_pl_mpeg:Clean;CPas_stb_image:Clean;CPas_stb_image_write:Clean;CPas_stb_truetype:Clean;Testbed:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CPas_Print:Make;CPas_SQLite:Make;CPas_Miniaudio:Make;CPas_Testbed:Make"/>
+        <CallTarget Targets="CPas_GLFW:Make;CPas_RGFW:Make;CPas_miniaudio:Make;CPas_pl_mpeg:Make;CPas_stb_image:Make;CPas_stb_image_write:Make;CPas_stb_truetype:Make;Testbed:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

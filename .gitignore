@@ -72,3 +72,4 @@ bin/example.db
 src/**/Win64x/
 src/**/*.dsv
 examples/**/*.dsv
+bin/image.png
