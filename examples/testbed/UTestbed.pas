@@ -20,6 +20,8 @@ unit UTestbed;
 interface
 
 uses
+  WinApi.Windows,
+  System.Generics.Collections,
   System.SysUtils,
   System.Classes,
   WinApi.OpenGL,
@@ -28,11 +30,55 @@ uses
   CPas.miniaudio,
   CPas.pl_mpeg,
   CPas.stb_truetype,
-  CPas.stb_image_write;
+  CPas.stb_image_write,
+  CPas.raudio;
 
 procedure RunTests();
 
 implementation
+
+type
+  { TKeyStates }
+  TKeyStates = class
+  private
+    FKeyStates: TDictionary<Word, Boolean>;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    function KeyHit(AKey: Word): Boolean;
+  end;
+
+{ TKeyStates }
+constructor TKeyStates.Create;
+begin
+  inherited Create;
+  FKeyStates := TDictionary<Word, Boolean>.Create;
+end;
+
+destructor TKeyStates.Destroy;
+begin
+  FKeyStates.Free;
+  inherited Destroy;
+end;
+
+function TKeyStates.KeyHit(AKey: Word): Boolean;
+var
+  LKeyState: Boolean;
+  LPrevKeyState: Boolean;
+begin
+  // Get the current state of the key (True if pressed)
+  LKeyState := (GetAsyncKeyState(AKey) and $8000) <> 0;
+
+  // Get the previous state of the key; default to False if not found
+  if not FKeyStates.TryGetValue(AKey, LPrevKeyState) then
+    LPrevKeyState := False;
+
+  // Key is considered 'hit' if it's currently pressed and was not pressed before
+  Result := LKeyState and not LPrevKeyState;
+
+  // Update the stored previous state
+  FKeyStates.AddOrSetValue(AKey, LKeyState);
+end;
 
 procedure Pause();
 begin
@@ -202,13 +248,51 @@ begin
 end;
 
 
+procedure Test_raudio();
+var
+  LKeyStates: TKeyStates;
+  LMusic: Music;
+  LSfx: Sound;
+  LDone: Boolean;
+begin
+  LKeyStates := TKeyStates.Create();
+
+  InitAudioDevice();
+
+  LSfx := LoadSound('res\digthis.ogg');
+  LMusic := LoadMusicStream('res\song01.ogg');
+  PlayMusicStream(Lmusic);
+
+  writeln;
+  write('Press ESC to quit, "1" for sfx...');
+
+  LDone := False;
+  while not LDone do
+  begin
+    if LKeyStates.KeyHit(VK_ESCAPE) then
+      LDone := True
+    else
+    if LKeyStates.KeyHit(Ord('1')) then
+      PlaySound(LSfx);
+
+    UpdateMusicStream(LMusic);
+    Sleep(10);
+  end;
+
+  UnloadMusicStream(LMusic);
+  UnloadSound(LSfx);
+  CloseAudioDevice();
+  LKeyStates.Free();
+end;
+
 procedure RunTests();
 begin
   //Test_RGFW();
   //Test_GLFW();
-  Test_miniaudio();
+  //Test_miniaudio();
   //Test_pl_mpeg01();
   //Test_stb_truetype();
+  Test_raudio();
   Pause();
 end;
 

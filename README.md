@@ -25,15 +25,16 @@ Once downloaded, you can easily integrate the provided libraries into your Delph
 ## 📚 Available Static Libraries
 The following is a list of the current static C libraries available in this project, each carefully chosen to provide essential functionality for modern applications and 🎮 game development:
 
-| 🏷️ Name           | 🗂️ Category  | 📝 Description |
+| 🏷️ Name                                            | 🗂️ Category  | 📝 Description|
 |----------------|-----------|-------------|
-| [GLFW](https://github.com/glfw/glfw)             | 🪟 Windowing   | Multi-platform library for creating windows and handling input events, suitable for building powerful graphical applications. |
-| [RGFW](https://github.com/ColleagueRiley/RGFW)   | 🪟 Windowing   | A cross platform lightweight single-header simple-to-use window abstraction library for creating graphical programs or libraries. |
-| [miniaudio](https://github.com/mackron/miniaudio)| 🔊 Audio       | An audio playback and capture library that supports a wide variety of audio formats, making it ideal for games and multimedia applications. |
-| [pl_mpeg](https://github.com/phoboslab/pl_mpeg)  | 📺 Media       | A single-header library for decoding MPEG-1 video, allowing developers to integrate video playback functionality directly into their applications. |
-| [stb_image](https://github.com/nothings/stb)     | 🖼️ Graphics    | Image loading library supporting multiple formats, making it easy to load textures and images in a variety of common formats. |
-| [stb_image_write](https://github.com/nothings/stb) | 🖼️ Graphics   | Image writing library for writing PNG, BMP, TGA, and JPG images, useful for saving screenshots or exporting image data. |
-| [stb_truetype](https://github.com/nothings/stb)  | 🖋️ Graphics    | Library for parsing TrueType font files, providing an easy way to render fonts and text in your applications. |
+| [GLFW](https://github.com/glfw/glfw)               | 🪟 Windowing  | Multi-platform library for creating windows and handling input events, suitable for building powerful graphical applications.                           |
+| [miniaudio](https://github.com/mackron/miniaudio)  | 🔊 Audio      | An audio playback and capture library that supports a wide variety of audio formats, making it ideal for games and multimedia applications.             |
+| [pl_mpeg](https://github.com/phoboslab/pl_mpeg)    | 📺 Media      | A single-header library for decoding MPEG-1 video, allowing developers to integrate video playback functionality directly into their applications.      |
+| [RGFW](https://github.com/ColleagueRiley/RGFW)     | 🪟 Windowing  | A cross-platform lightweight single-header simple-to-use window abstraction library for creating graphical programs or libraries.                        |
+| [raudio](https://github.com/raysan5/raudio)        | 🔊 Audio      | A simple and easy-to-use audio library based on miniaudio.                                                                                              |
+| [stb_image](https://github.com/nothings/stb)       | 🖼️ Graphics   | Image loading library supporting multiple formats, making it easy to load textures and images in a variety of common formats.                            |
+| [stb_image_write](https://github.com/nothings/stb) | 🖼️ Graphics   | Image writing library for PNG, BMP, TGA, and JPG images, useful for saving screenshots or exporting image data.                                          |
+| [stb_truetype](https://github.com/nothings/stb)    | 🖋️ Graphics   | Library for parsing TrueType font files, providing an easy way to render fonts and text in your applications.                                            |
 
 These libraries provide a comprehensive range of functionalities for building sophisticated applications and 🎮 games in Delphi, without the hassle of managing external dependencies. By using static linking, you can avoid compatibility issues related to DLL versions and reduce the need for runtime dependencies, simplifying both development and deployment.
 

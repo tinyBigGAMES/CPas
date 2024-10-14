@@ -24,6 +24,9 @@
         <Projects Include="stb_truetype\CPas.stb_truetype.cbproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="raudio\CPas.raudio.cbproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="..\examples\testbed\Testbed.dproj">
             <Dependencies/>
         </Projects>
@@ -98,6 +101,15 @@
     <Target Name="CPas_stb_truetype:Make">
         <MSBuild Projects="stb_truetype\CPas.stb_truetype.cbproj" Targets="Make"/>
     </Target>
+    <Target Name="CPas_raudio">
+        <MSBuild Projects="raudio\CPas.raudio.cbproj"/>
+    </Target>
+    <Target Name="CPas_raudio:Clean">
+        <MSBuild Projects="raudio\CPas.raudio.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPas_raudio:Make">
+        <MSBuild Projects="raudio\CPas.raudio.cbproj" Targets="Make"/>
+    </Target>
     <Target Name="Testbed">
         <MSBuild Projects="..\examples\testbed\Testbed.dproj"/>
     </Target>
@@ -108,13 +120,13 @@
         <MSBuild Projects="..\examples\testbed\Testbed.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="CPas_GLFW;CPas_RGFW;CPas_miniaudio;CPas_pl_mpeg;CPas_stb_image;CPas_stb_image_write;CPas_stb_truetype;Testbed"/>
+        <CallTarget Targets="CPas_GLFW;CPas_RGFW;CPas_miniaudio;CPas_pl_mpeg;CPas_stb_image;CPas_stb_image_write;CPas_stb_truetype;CPas_raudio;Testbed"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="CPas_GLFW:Clean;CPas_RGFW:Clean;CPas_miniaudio:Clean;CPas_pl_mpeg:Clean;CPas_stb_image:Clean;CPas_stb_image_write:Clean;CPas_stb_truetype:Clean;Testbed:Clean"/>
+        <CallTarget Targets="CPas_GLFW:Clean;CPas_RGFW:Clean;CPas_miniaudio:Clean;CPas_pl_mpeg:Clean;CPas_stb_image:Clean;CPas_stb_image_write:Clean;CPas_stb_truetype:Clean;CPas_raudio:Clean;Testbed:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="CPas_GLFW:Make;CPas_RGFW:Make;CPas_miniaudio:Make;CPas_pl_mpeg:Make;CPas_stb_image:Make;CPas_stb_image_write:Make;CPas_stb_truetype:Make;Testbed:Make"/>
+        <CallTarget Targets="CPas_GLFW:Make;CPas_RGFW:Make;CPas_miniaudio:Make;CPas_pl_mpeg:Make;CPas_stb_image:Make;CPas_stb_image_write:Make;CPas_stb_truetype:Make;CPas_raudio:Make;Testbed:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

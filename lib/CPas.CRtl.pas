@@ -61,6 +61,7 @@ procedure DragFinish; stdcall; external shell32;
 //=== UCRTBASE ==============================================================
 procedure strdup cdecl; external ucrtbase name '_strdup';
 
+
 //=== UCRT ==================================================================
 procedure feof; cdecl; external ucrt;
 procedure memset; cdecl; external ucrt;
@@ -134,6 +135,7 @@ procedure wcstombs; cdecl; external ucrt;
 procedure powf; cdecl; external ucrt;
 procedure _wassert; cdecl; external ucrt;
 procedure Abs; cdecl; external ucrt name 'abs';
+procedure fputs; cdecl; external ucrt;
 
 //=== MSVCRT ================================================================
 procedure snprintf; cdecl; external msvcrt name '_snprintf';
@@ -141,6 +143,16 @@ procedure vsnprintf; cdecl; external msvcrt name '_vsnprintf';
 procedure sscanf; cdecl varargs; external msvcrt name 'sscanf';
 procedure sprintf; cdecl varargs; external msvcrt name 'sprintf';
 procedure printf; cdecl varargs; external msvcrt;
+procedure Exit; cdecl; external msvcrt name '_exit';
+
+procedure &div; cdecl; external ucrt;
+procedure sinf; cdecl; external  ucrt;
+procedure rewind; cdecl; external ucrt;
+procedure fflush; cdecl; external msvcrt;
+procedure fprintf; cdecl; varargs; external msvcrt;
+procedure strpbrk; cdecl; external ucrt;
+procedure exp2f; cdecl; external ucrt;
+
 
 //=== OPENGL32 ==============================================================
 procedure wglGetProcAddress; stdcall; external opengl32;

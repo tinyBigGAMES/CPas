@@ -31,7 +31,8 @@ uses
   CPas.pl_mpeg in '..\..\lib\CPas.pl_mpeg.pas',
   CPas.stb_image in '..\..\lib\CPas.stb_image.pas',
   CPas.stb_image_write in '..\..\lib\CPas.stb_image_write.pas',
-  CPas.stb_truetype in '..\..\lib\CPas.stb_truetype.pas';
+  CPas.stb_truetype in '..\..\lib\CPas.stb_truetype.pas',
+  CPas.raudio in '..\..\lib\CPas.raudio.pas';
 
 begin
   try
