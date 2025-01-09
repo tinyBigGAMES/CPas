@@ -1,6 +1,6 @@
 ![CPas](media/Logo.jpg)
 
-[![Chat on Discord](https://img.shields.io/discord/754884471324672040.svg?logo=discord)](https://discord.gg/tPWjMwK) [![Twitter Follow](https://img.shields.io/twitter/follow/tinyBigGAMES?style=social)](https://twitter.com/tinyBigGAMES)
+[![Chat on Discord](https://img.shields.io/discord/754884471324672040?style=for-the-badge)](https://discord.gg/tPWjMwK) [![Follow on Bluesky](https://img.shields.io/badge/Bluesky-tinyBigGAMES-blue?style=for-the-badge&logo=bluesky)](https://bsky.app/profile/tinybiggames.com)
 
 CPas is a collection of hand-picked, high-quality C libraries, compiled into a single translation unit and seamlessly integrated into Delphi. This approach eliminates the need for external DLLs, runtime extraction, or loading them in memory, simplifying the development process and reducing potential compatibility issues, such as antivirus 🛡️ interference. The project has been developed and extensively tested on 🪟 Windows 11 with <a href="https://www.embarcadero.com/products/rad-studio" target="_blank">RAD Studio 12.2</a>, and is designed to be fully compatible with 🪟 Windows 10, 64-bit and higher. This makes the setup ideal for developers looking for a streamlined and efficient way to leverage C libraries directly in Delphi.
 
